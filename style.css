@@ -1,0 +1,16 @@
+/*
+Theme Name: Manum In Vulnere
+Theme URI: 
+Author: Alexandre Petot
+Author URI: petot.alex@gmail.com
+Description: Thème artisanal pour aider une ONG à faire des levées de fond
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: miv.ong
+Tags: 
+*/
+
+* {
+    color: salmon;
+}

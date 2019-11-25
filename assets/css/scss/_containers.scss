@@ -1,0 +1,10 @@
+
+.container {
+    margin: auto;
+}
+
+@include lg {
+    .container {
+        max-width: 1240px;
+    }
+}

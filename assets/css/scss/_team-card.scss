@@ -1,0 +1,109 @@
+.team-card {
+    width: 50%;
+    @include xs {
+        width: 100%;
+        margin: auto;
+
+    }
+    max-width: 500px;
+    padding: 1rem;
+    margin-top: 1rem;
+
+    .wrapper {
+        position: relative;
+        min-height: 5rem;
+
+        background-color: $team-card-background;
+        border-radius: 1rem;
+        box-shadow: 0px 0px 22px 4px rgba(0,0,0,0.68);
+
+        .info {
+            float: right;
+            padding-right: 2rem;
+            padding-top: 2rem;
+            @include less-than-md {
+                padding-right: 1rem;
+                padding-top: 1rem;
+            }
+        }
+
+        .name {
+            right: 2rem;
+            font-size: 1.5rem;
+            font-family: $roboto;
+            line-height: 1.5rem;
+            text-align: right;
+        }
+
+        .function {
+            font-size: 1rem;
+            font-style: italic;
+            color: $custom-black;
+            opacity: 0.8;
+            text-align: right;
+        }
+
+        .avatar {
+            float: right;
+            padding-right: 2rem;
+            margin-top: -2rem;
+            @include xs {
+                margin-top: 0.5rem;
+            }
+            transition: ease margin 0.5s;
+
+            img {
+                height: 6rem;
+                width: 6rem;
+
+                @include xs {
+                    height: 4rem;
+                    width: 4rem;
+                }
+
+                border-radius: 0.75rem;
+            }
+        }
+
+        .description {
+            height: 0;
+            opacity: 0;
+            transition: opacity 0.5s;
+            transition: max-height 0.5s;
+        }
+
+        @include md {
+            &.active {
+
+                .avatar {
+                    margin-top: 1rem;
+                    
+                }
+                .description {
+                    height: auto;
+                    opacity: 1;
+                    clear: both;
+                    padding: 2rem;
+                    line-height: 2rem;
+                    transition: opacity 0.3s;
+                }
+            }
+        }
+
+        @include xs {
+            &.active {
+                .avatar {
+                    margin-top: 0.5rem;
+                }
+                .description {
+                    height: auto;
+                    opacity: 1;
+                    clear: both;
+                    padding: 1rem;
+                    line-height: 1rem;
+                    transition: opacity 0.3s;
+                }
+            }
+        }
+    }
+}

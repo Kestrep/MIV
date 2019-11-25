@@ -1,0 +1,173 @@
+
+/* position */
+.page-header {
+
+    .page-header-container {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: start;
+        align-items: center;
+
+        padding: 2rem;
+        
+        @include md {
+            padding: 1rem;
+            padding-bottom: 0;
+        }
+        @include xs {
+            justify-content: space-between;
+            padding: 0;
+        }
+    }
+
+    .logo-wrapper {
+        max-height: 8rem;
+        max-width:  8rem;
+        overflow: hidden;
+        @include xs {
+            max-height: 6rem;
+            max-width: 6rem;
+        }
+        
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .site-title {
+        margin: 1rem;
+        text-align: center;
+    }
+
+    .hamburger {
+        display: none;
+        @include xs {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: end;
+        
+        @include xs {display: none;}
+        ul {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+        }
+    }
+    .donation-button {
+        @include xs {
+            display: none;
+        }
+    }
+
+    #hamburgerMenu {
+        display: none;
+
+        &.active {
+            display: flex;
+            justify-content: end;
+
+            ul {
+                margin-top: 1rem;
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: flex-end;
+            }
+
+        }
+    }
+}
+
+
+/* Decoration */ 
+.page-header {
+    background-color: $custom-white;
+
+    .site-title {
+        font-size: 4rem;
+        font-family: $plex;
+        color: $primary-color;
+        font-weight: bolder;
+
+        @include md {
+            font-size: 3rem;
+        }
+
+        @include xs {
+            font-size: 1.5rem;
+        }
+    }
+
+
+    .nav, .nav-container {
+        font-size: 1.5rem;
+
+        ul {
+
+            margin: 0.5rem;
+
+            li {
+                padding: 1rem;
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+                font-size: 1.5rem;
+                border-bottom: 2px solid transparent;
+
+                &:hover {
+                    cursor: pointer;
+                    border-bottom: 2px solid $primary-color;
+                }
+            }
+        }
+    }
+
+    .menu-item {
+        padding: 1rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        font-size: 1.5rem;
+        border-bottom: 2px solid transparent;
+
+        &:hover {
+            cursor: pointer;
+            border-bottom: 2px solid $primary-color;
+        }
+    }
+
+    .hamburger {
+        margin: 1rem;
+        height: 3rem;
+        width:  3rem;
+
+        &:hover .line {
+            background-color: $dark-primary-color
+        }
+        .line {
+            height: 5px;
+            background-color: $primary-color;
+            width: 100%;
+            border-radius: 0.5rem;
+
+
+        }
+    }
+}
+
+.header-divider {
+    height: 1px;
+    @include md {
+        width: calc(100% - 8rem);
+    }
+    @include xs {
+        width: 100%;
+    }
+    background-color: $custom-black;
+    margin: auto;
+}

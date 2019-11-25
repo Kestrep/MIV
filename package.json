@@ -1,0 +1,17 @@
+{
+  "name": "miv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "node-sass -w assets/css/scss/ -o assets/css/ --recursive",
+    "build": "wp-scripts build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@wordpress/scripts": "^3.4.0",
+    "node-sass": "^4.13.0"
+  }
+}

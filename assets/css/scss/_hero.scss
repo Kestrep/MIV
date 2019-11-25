@@ -1,0 +1,23 @@
+.hero-donation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 1rem;
+    
+    background-color: $primary-color;
+
+    .text {
+        font-family: $roboto;
+        font-size: 5rem;
+        text-align: center;
+        @include xs {
+            font-size: 3rem;
+        }
+
+        color: $custom-white;
+
+    }
+
+}

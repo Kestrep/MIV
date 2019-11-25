@@ -1,0 +1,146 @@
+section {
+    @include md {
+        margin-top: 2rem;
+    }
+    margin-top: 1rem;
+}
+
+section.info {
+    
+    display: flex;
+    @include xs {
+        flex-direction: column;
+    }
+
+    .image {
+        
+        @include md {
+            width: 50%;
+            padding: 2rem;
+
+        }
+        padding: 1rem;
+        
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 100%;
+
+            @include md {
+                border: 0.5rem solid $custom-white;
+                border-bottom: 4rem solid $custom-white;
+                box-shadow: 0px 0px 22px 4px rgba(0,0,0,0.68);
+            }
+        }
+        
+    }
+    
+    &.img-align-right {
+        @include md {
+            flex-direction: row-reverse;
+
+        }
+    }
+    @include md {
+        &.img-align-left>.image>img {
+            transform: rotateZ(-3deg);
+        }
+        &.img-align-right>.image>img {
+            transform: rotateZ(3deg);
+        }
+            
+    }
+
+
+    .info {
+        @include md {
+
+            width: 50%;
+            padding: 2rem;
+        }
+        padding: 1rem;
+
+        .header {
+            font-family: $plex;
+            font-size: 2rem;
+
+        }
+
+        .content {
+            text-indent: 2rem;
+            line-height: 2rem;
+            font-size: 1rem;
+            text-align: justify;
+        }
+
+    }
+
+}
+
+.homepage-article {
+
+    padding: 1rem;
+    @include md {
+        padding: 2rem;
+
+    }
+
+    .image {
+        
+        padding: 1rem;
+        @include xs {
+            padding: 1rem;
+        }
+        
+        @include md {
+            width: 50%;
+            padding: 2rem;
+            float: left;
+            transform: rotateZ(-3deg);
+
+        }
+
+        img {
+            width: 100%;
+            @include md {
+                border: 0.5rem solid $custom-white;
+                border-bottom: 4rem solid $custom-white;
+                box-shadow: 0px 0px 22px 4px rgba(0,0,0,0.68);
+
+            }
+            
+        }
+        
+    }
+    .title {
+        font-size: 2rem;
+        font-family: $plex;
+        line-height: 3rem;;
+    }
+    .content {
+        position: relative;
+        padding-top: 1rem;
+        font-size: 1rem;
+        line-height: 2rem;
+        font-family: $roboto;
+        text-align: justify;
+
+        .hidden {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 8rem;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba($wallpaper,1) 100%);
+
+        }
+
+    }
+
+}
+
+section.team {
+    display: flex;
+    flex-flow: row wrap;
+
+}

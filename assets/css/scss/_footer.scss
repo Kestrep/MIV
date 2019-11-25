@@ -1,0 +1,46 @@
+
+footer {
+    position: relative;
+    min-height: 6rem;
+
+    margin-top: 4rem;
+    background-color: $custom-black;
+    color: $custom-white;
+    font-size: 1rem;
+
+    * {
+        color: inherit;
+    }
+
+    ul {
+        padding-top: 1rem;
+        padding-left: 2rem;
+
+        li {
+            margin: 0.5rem;
+        }
+
+    }
+
+    padding-bottom: 1rem;
+    padding-left: 1rem;;
+
+    @include md {
+        .petot-launcher {
+            padding-top: 1rem;
+            color: inherit;
+            position: absolute;
+            right: 1rem;
+            bottom: 1rem;
+        }
+    }
+
+
+
+    img {
+        width: 1.5rem;
+        height: 1.5rem;
+        transform: rotateZ(-45deg);
+        color: $custom-white;
+    }
+}
