@@ -404,9 +404,16 @@ footer {
 
 .metadata {
   margin-top: 2rem; }
+  @media screen and (max-width: 540px) {
+    .metadata {
+      margin-top: 0.5rem; } }
 
 .date, .tags {
   display: inline; }
+  @media screen and (max-width: 540px) {
+    .date, .tags {
+      font-size: 0.75rem;
+      line-height: 1rem; } }
 
 .date {
   color: #8C8B88;
@@ -420,8 +427,13 @@ h2 {
   font-size: 3rem;
   font-family: "IBM Plex Serif", serif;
   line-height: 4rem;
-  padding: 2rem;
   padding-top: 0; }
+  @media screen and (max-width: 1024px) {
+    h2 {
+      font-size: 2rem;
+      line-height: 2.5rem;
+      padding-left: 1rem;
+      margin-top: 0rem; } }
 
 p {
   display: block;
@@ -431,15 +443,30 @@ p {
   font-style: "Roboto", sans-serif;
   line-height: 2rem;
   text-indent: 2rem; }
+  @media screen and (max-width: 540px) {
+    p {
+      text-indent: 1rem; } }
 
-.wp-block-image {
-  padding: 1rem; }
-  .wp-block-image figure {
-    width: 80%; }
-  .wp-block-image .alignright {
-    float: right; }
-  .wp-block-image .alignleft {
-    float: left; }
+@media screen and (min-width: 540px) {
+  .wp-block-image {
+    padding: 1rem;
+    margin-bottom: 3rem; }
+    .wp-block-image figure {
+      max-width: 80%; }
+    .wp-block-image .alignright img {
+      float: right;
+      transform: rotateZ(3deg); }
+    .wp-block-image .alignleft img {
+      float: left;
+      transform: rotateZ(-3deg); }
+    .wp-block-image figure.alignright img, .wp-block-image figure.alignleft img {
+      box-sizing: content-box;
+      outline: 0.5rem solid #FFFFFF;
+      border-bottom: 3rem solid #FFFFFF;
+      box-shadow: 0px 0px 22px 4px rgba(0, 0, 0, 0.68); } }
+    @media screen and (min-width: 540px) and (min-width: 1240px) {
+      .wp-block-image figure.alignright img, .wp-block-image figure.alignleft img {
+        border-bottom: 4rem solid #FFFFFF; } }
 
 .wp-block-quote {
   font-style: italic;
@@ -450,5 +477,22 @@ p {
   line-height: 2rem; }
   .wp-block-quote p::before, .wp-block-quote p::after {
     content: "\""; }
+
+.inline-photo {
+  border: 1em solid #fff;
+  border-bottom: 4em solid #fff;
+  border-radius: .25em;
+  box-shadow: 1em 1em 2em 0.25em rgba(0, 0, 0, 0.2);
+  margin: 2em auto;
+  opacity: 0;
+  transform: translateY(4em) rotateZ(-5deg);
+  transition: transform 4s 0.25s cubic-bezier(0, 1, 0.3, 1), opacity 0.3s 0.25s ease-out;
+  max-width: 600px;
+  width: 90%;
+  will-change: transform, opacity; }
+
+.inline-photo.is-visible {
+  opacity: 1;
+  transform: rotateZ(-2deg); }
 
 /* xs => 540px, md => 1240, lg => oo*/

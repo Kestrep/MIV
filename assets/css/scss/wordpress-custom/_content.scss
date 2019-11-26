@@ -1,13 +1,21 @@
 .metadata {
     margin-top: 2rem;
+    @include xs {
+        margin-top: 0.5rem;
+    }
 }
 .date, .tags {
     display: inline;
+    @include xs {
+        font-size: 0.75rem;
+        line-height: 1rem;
+    }
 }
 
 .date {
     color: #8C8B88;
     font-style: italic;
+
 
 
 }
@@ -21,8 +29,18 @@ h2  {
     font-size: 3rem;
     font-family: $plex;
     line-height: 4rem;
-    padding: 2rem;
     padding-top: 0;
+
+    @include less-than-1024 {
+        font-size: 2rem;
+        line-height: 2.5rem;
+        padding-left: 1rem;
+        margin-top: 0rem;
+        
+    }
+
+    @include xs {
+    }
 
 }
 p {
@@ -34,27 +52,36 @@ p {
     font-style: $roboto;
     line-height: 2rem;
     text-indent: 2rem;
+    @include xs {text-indent: 1rem;}
 }
 
-.wp-block-image {
-    padding: 1rem;
+@include md {
+    .wp-block-image {
+        padding: 1rem;
+        margin-bottom: 3rem;
 
-    figure {
-        width: 80%
-    }
+        figure {
+            max-width: 80%
+        }
 
-    .alignright {
-        float: right;
-        // transform: rotateZ(3deg);
-    }
-    .alignleft {
-        float: left;
-        // transform: rotateZ(-3deg);
-    }
-    figure > img {
-        // border: 0.5rem solid $custom-white;
-        // border-bottom: 4rem solid $custom-white;
-        // box-shadow: 0px 0px 22px 4px rgba(0,0,0,0.68);
+        .alignright img {
+            float: right;
+            transform: rotateZ(3deg);
+        }
+        .alignleft img {
+            float: left;
+            transform: rotateZ(-3deg);
+        }
+
+        figure.alignright img, figure.alignleft img {
+            box-sizing: content-box;
+            outline: 0.5rem solid $custom-white;
+
+            border-bottom: 3rem solid $custom-white;
+            @include lg { border-bottom: 4rem solid $custom-white;}
+                
+            box-shadow: 0px 0px 22px 4px rgba(0,0,0,0.68);
+        }
     }
 }
 

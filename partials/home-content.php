@@ -2,7 +2,7 @@
 
     <section class="info img-align-left">
         <aside class="image align-left">
-            <img src="<?php echo get_template_directory_uri() . "/image_temp/classe-pouce-en-lair.jpg" ?>" alt="Logo">
+            <img class=" inline-photo show-on-scroll" src="<?php echo get_template_directory_uri() . "/image_temp/classe-pouce-en-lair.jpg" ?>" alt="Logo">
         </aside>
         <main class="info">
             <div class="header">Qui sommes nous ?</div>
@@ -15,7 +15,7 @@
 
     <section class="info img-align-right">
         <aside class="image align-right">
-            <img src="<?php echo get_template_directory_uri() . "/image_temp/vue-exterieure-ecole.jpg" ?>" alt="Logo">
+            <img class="inline-photo show-on-scroll" src="<?php echo get_template_directory_uri() . "/image_temp/vue-exterieure-ecole.jpg" ?>" alt="Logo">
         </aside>
         <main class="info">
             <div class="header">Que faisons nous ?</div>
