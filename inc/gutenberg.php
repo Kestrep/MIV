@@ -8,6 +8,14 @@ function gutenberg_blocks() {
     register_block_type('namespace/cta-block', array(
         'editor_script' => 'custom-cta-js' // Quel script sera utilisé ? Celui qu'on a appelé juste avant (cf fonction précédente)
     ));
+
+    wp_register_script('custom-donation-cta-js', 
+        get_template_directory_uri() . '/build/index.js', 
+        array('wp-blocks', 'wp-components', 'wp-editor')
+        );
+    register_block_type('namespace/donation-cta-block', array(
+        'editor_script' => 'custom-donation-cta-js' // Quel script sera utilisé ? Celui qu'on a appelé juste avant (cf fonction précédente)
+    ));
 }
 
 add_action('init', 'gutenberg_blocks');

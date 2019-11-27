@@ -1,0 +1,43 @@
+.team-card {
+    align-items: flex-end;
+    align-content: center;
+
+    margin: 2rem;
+
+    background-color: $team-card-background;
+    border-radius: 0.3rem;
+    box-shadow: 0px 0px 22px 4px rgba(0,0,0,0.68);
+
+    .avatar {
+        padding: 1rem;
+        max-width: 10rem;
+        max-height: 10rem;
+    }
+
+    .info {
+        padding: 1rem;
+        font-family: $roboto;
+        .name {
+            font-size: 3rem;
+            
+        }
+        .function {
+            font-size: 2rem;
+            font-style: italic;
+        }
+    }
+    .description {
+        font-size: 0.90rem;
+        p {
+            padding: 0;
+            margin: 0.25rem;
+            line-height: 1.2rem;
+        }
+    }
+
+
+
+
+
+
+}

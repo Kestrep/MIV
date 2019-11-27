@@ -13,10 +13,12 @@
     <div class="page-header-container">
 
         <div class="logo-wrapper">
+            <a href="<?php echo get_home_url(); ?>">
             <img src="<?= get_template_directory_uri() . "/image_temp/logo_seul.jpg" ?>" alt="" srcset="">
+            </a>
         </div>
         <div class="title-wrapper">
-            <div class="site-title">La main sur la plaie</div>
+            <div class="site-title"><a href="<?php echo get_home_url(); ?>">La main sur la plaie</a></div>
         </div>
         <div class="hamburger" id="hamburger">
             <div class="line"></div>

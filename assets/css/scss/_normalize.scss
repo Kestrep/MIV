@@ -10,6 +10,7 @@
 }
 
 html, body {
+    overflow-x:hidden;
     font-size: 18px;
     @include lg {
         font-size: 22px;
@@ -19,4 +20,16 @@ html, body {
 
 body {
     background-color: $wallpaper;
+}
+
+/* Petite balise pour savoir ou on est */
+.localisation-in-wordpress {
+    position: absolute;
+    font-size: 12px;
+    right: 10px;
+}
+
+img {
+    width: 100%;
+    height: auto;
 }

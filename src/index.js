@@ -2,6 +2,75 @@ const { registerBlockType } = wp.blocks;
 const { RichText, InspectorControls, ColorPalette, MediaUpload } = wp.editor; // Ne pas oublier de le signaler en php dans /inc/gutenberg.php
 const { PanelBody, IconButton } = wp.components;
 
+registerBlockType('namespace/donation-block', {
+
+    // built-in attributes
+    title: 'Donation Call To Action',
+    description: 'Block qui génère un appel à donation dans un hero',
+    icon: 'format-image',
+    category: 'layout',
+
+    // Custom attributes
+    attributes: {
+        hook: {
+            type: 'string',
+            source: 'html',
+            selector: 'div'
+        },
+        buttonText: {
+            type: 'string',
+            source: 'html',
+            selector: 'div'
+        }
+    },
+
+    // Built-in functions
+    edit({attributes, setAttributes}) {
+        const {
+            buttonText,
+            hook
+        } = attributes;
+        // Custom functions
+        function updateButtonText(newButtonText) {
+            setAttributes({ buttonText: newButtonText });
+        }
+
+        function updateHook(newHook) {
+            setAttributes({ hook: newHook });
+        }
+        
+        return (
+            <div class="cta-container">
+                <RichText   key="editable" 
+                            tagName="h2"
+                            placeholder="Le texte au dessus du bouton"
+                            value={ hook }
+                            onChange={ updateHook }
+                            />
+                <RichText   key="editable" 
+                            tagName="div"
+                            placeholder="Le texte du bouton"
+                            value={ buttonText }
+                            onChange={ updateButtonText }
+                            />
+            </div>
+        );
+    },
+
+    save({attributes}) {
+        const {
+            buttonText,
+            hook
+        } = attributes;
+
+        return (
+            <section class="hero hero-fullwidth hero-donation">
+                <div class="text">{ hook }</div>
+                <div class="donation-button big">{ buttonText }</div>
+            </section>
+        );
+    }
+});
 
 registerBlockType('namespace/cta-block', { // 'namespace/block-slug'
 

@@ -33,6 +33,18 @@ add_action( 'wp_enqueue_scripts', 'scripts' );
 require get_template_directory() . '/inc/functions/menus.php';
 
 /**
+ * Custom Post Type : Team Member
+ */
+require get_template_directory() . '/inc/functions/custom-post-type.php';
+
+/**
+ * Custom Fields
+ */
+require get_template_directory() . '/inc/functions/custom-fields.php';
+
+
+
+/**
  * Custom Gutenberg blocks
  */
 require get_template_directory() . '/inc/gutenberg.php';

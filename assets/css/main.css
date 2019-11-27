@@ -16,6 +16,7 @@ xs
   text-decoration: none; }
 
 html, body {
+  overflow-x: hidden;
   font-size: 18px;
   color: #353535; }
   @media screen and (min-width: 1240px) {
@@ -24,6 +25,16 @@ html, body {
 
 body {
   background-color: #F9F8D7; }
+
+/* Petite balise pour savoir ou on est */
+.localisation-in-wordpress {
+  position: absolute;
+  font-size: 12px;
+  right: 10px; }
+
+img {
+  width: 100%;
+  height: auto; }
 
 .container {
   margin: auto; }
@@ -296,6 +307,12 @@ section.team {
       .hero-donation .text {
         font-size: 3rem; } }
 
+.hero-fullwidth {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%); }
+
 .team-card {
   width: 50%;
   max-width: 500px;
@@ -372,6 +389,32 @@ section.team {
         padding: 1rem;
         line-height: 1rem;
         transition: opacity 0.3s; } }
+
+.team-card {
+  align-items: flex-end;
+  align-content: center;
+  margin: 2rem;
+  background-color: #EFECCE;
+  border-radius: 0.3rem;
+  box-shadow: 0px 0px 22px 4px rgba(0, 0, 0, 0.68); }
+  .team-card .avatar {
+    padding: 1rem;
+    max-width: 10rem;
+    max-height: 10rem; }
+  .team-card .info {
+    padding: 1rem;
+    font-family: "Roboto", sans-serif; }
+    .team-card .info .name {
+      font-size: 3rem; }
+    .team-card .info .function {
+      font-size: 2rem;
+      font-style: italic; }
+  .team-card .description {
+    font-size: 0.90rem; }
+    .team-card .description p {
+      padding: 0;
+      margin: 0.25rem;
+      line-height: 1.2rem; }
 
 footer {
   position: relative;
@@ -494,5 +537,25 @@ p {
 .inline-photo.is-visible {
   opacity: 1;
   transform: rotateZ(-2deg); }
+
+.page-fullwidth {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%); }
+
+.page-title {
+  color: #FFFFFF;
+  padding: 1rem 2rem;
+  background-color: #4C722E;
+  font-size: 4rem; }
+
+.page-description {
+  padding-left: 4rem; }
+
+.post-link {
+  color: #4C722E;
+  margin: 1rem;
+  font-size: 1rem; }
 
 /* xs => 540px, md => 1240, lg => oo*/

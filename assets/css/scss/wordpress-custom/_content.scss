@@ -4,6 +4,7 @@
         margin-top: 0.5rem;
     }
 }
+
 .date, .tags {
     display: inline;
     @include xs {
@@ -15,9 +16,6 @@
 .date {
     color: #8C8B88;
     font-style: italic;
-
-
-
 }
 
 .tags {
@@ -38,11 +36,8 @@ h2  {
         margin-top: 0rem;
         
     }
-
-    @include xs {
-    }
-
 }
+
 p {
     display: block;
     word-wrap: break-word;

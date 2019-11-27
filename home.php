@@ -4,7 +4,7 @@
 <?php get_template_part('partials/home-content'); ?>
 
 <div class="container">
-
+    
     <section class="homepage-article">
         <aside class="image align-left">
             <img src="<?php echo get_template_directory_uri() . "/image_temp/groupe-devant-dortoir.jpg" ?>" alt="Logo">
