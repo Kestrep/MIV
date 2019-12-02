@@ -1,6 +1,7 @@
 const { registerBlockType } = wp.blocks;
 const { RichText, InspectorControls, ColorPalette, MediaUpload } = wp.editor; // Ne pas oublier de le signaler en php dans /inc/gutenberg.php
-const { PanelBody, IconButton } = wp.components;
+const { PanelBody, IconButton, RadioControl } = wp.components;
+const { withState } = wp.compose;
 
 registerBlockType('namespace/donation-block', {
 
@@ -72,11 +73,11 @@ registerBlockType('namespace/donation-block', {
     }
 });
 
-registerBlockType('namespace/cta-block', { // 'namespace/block-slug'
+registerBlockType('namespace/presentation-section-block', { // 'namespace/block-slug'
 
     // built-in attributes
-    title: 'Call to Action',
-    description: 'Block to generate a custom Call to Action',
+    title: 'Presentation Section',
+    description: 'Block to generate a presentation with an align image',
     icon: 'format-image',
     category: 'layout', // Category dans laquelle sera rangé notre block, lors de sa sélection dans l'interface Admin
 
@@ -95,7 +96,11 @@ registerBlockType('namespace/cta-block', { // 'namespace/block-slug'
         backgroundImage: {
             type: 'string', // URL
             default: null
+        },
+        align: {
+            type: 'string'
         }
+
     },
     // Custom functions
 
@@ -105,6 +110,7 @@ registerBlockType('namespace/cta-block', { // 'namespace/block-slug'
             title,
             body,
             backgroundImage,
+            align,
         } = attributes;
 
         function onChangeTitle(newTitle) {
@@ -116,11 +122,14 @@ registerBlockType('namespace/cta-block', { // 'namespace/block-slug'
         function onSelectImage(newImage) {
             setAttributes({ backgroundImage: newImage.sizes.full.url });
         }
+        function onChangeAlign(newAlign) {
+            setAttributes({ align: newAlign });
+        }
 
         return ([
             <InspectorControls style={{marginBottom: '40px'}}>
                 <PanelBody title={ 'Background Image Settings' }>
-                    <p><strong>Select a Background Image: </strong></p>
+                    <p><strong>Sélectionner l'image</strong></p>
                     <MediaUpload
                         onSelect={ onSelectImage }
                         type="image"
@@ -130,22 +139,35 @@ registerBlockType('namespace/cta-block', { // 'namespace/block-slug'
                                 onClick={ open }
                                 icon="upload"
                                 className="editor-medi-placeholder__button is-button is-default is-large">
-                                Background Image 
+                                Image 
                             </IconButton>
                             )} 
                         />
+                </PanelBody>
+                <PanelBody title={ 'Align Image Settings '}>
+                    <p><strong>Sélectionner l'alignement de l'image</strong></p>
+                    <RadioControl   label='Alignement'
+                                    selected={ align }
+                                    options = {[
+                                        { label: 'To Left', value: 'img-align-left' },
+                                        { label: 'To Right', value: 'img-align-right' }
+                                    ]}
+                                    onChange = { onChangeAlign }
+
+                    />
+
                 </PanelBody>
             </InspectorControls>,
             <div class="cta-container">
                 <RichText   key="editable" 
                             tagName="h2"
-                            placeholder="Your CTA title"
+                            placeholder="Le titre du block de présentation"
                             value={ title }
                             onChange={ onChangeTitle }
                             />
                 <RichText   key="editable" 
                             tagName="p"
-                            placeholder="Your CTA description"
+                            placeholder="Texte long"
                             value={ body }
                             onChange={ onChangeBody }
                             />
@@ -156,15 +178,36 @@ registerBlockType('namespace/cta-block', { // 'namespace/block-slug'
     save({ attributes }) {
         const {
             title,
-            body
+            body,
+            backgroundImage,
+            align
         } = attributes;
 
         return (
-            <div class="cta-container">
-                <h2>{ title }</h2>
-                <RichText.Content   tagName="p"
-                                    value={ body }/>
+            <div>
+                <div class="presentation-card container">
+                    <div class={"image-wrapper show-on-scroll col-6 " + align }>
+                        <img src={ backgroundImage} alt=""/>
+                    </div>
+                    <h2 class="presentation-hook">{ title }</h2>
+                    <div class="content">
+                        <RichText.Content   tagName="p"
+                                value={ body }/>    
+                    </div>
+                </div>
             </div>
+            
         );
     }
 });
+
+/*
+<div class="cta-container">
+    <h2>{ title }</h2>
+    <RichText.Content   tagName="p"
+                        value={ body }/>
+    <div class={ "image " +  align }>
+        <img src={ backgroundImage }/>
+    </div>
+</div>
+*/

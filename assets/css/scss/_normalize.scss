@@ -4,8 +4,7 @@
     padding: 0;
     list-style: none;
     color: inherit;
-    font-family: $roboto;
-    
+    font-family: inherit;
     text-decoration: none;
 }
 
@@ -15,6 +14,7 @@ html, body {
     @include lg {
         font-size: 22px;
     }
+    font-family: $roboto;
     color: $custom-black;
 }
 

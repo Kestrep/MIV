@@ -9,7 +9,35 @@
 </head>
 <body>
 
-<header class="page-header">
+<?php 
+    $logo_url = get_template_directory_uri() . "/image_temp/logo_seul.jpg";
+    $home_link = get_home_url();
+ ?>
+
+<header class="pg-hdr">
+    <div class="pg-hdr-cntnr">
+        <div class="logo-wrppr">
+            <a href="<?= $home_link; ?>">
+                <img src="<?= $logo_url; ?>" alt="Logo du site" class="logo">
+            </a>
+        </div>
+        
+        <div class="site-ttl-wrppr col">
+            <div class="site-ttl"><a href="<?= $home_link ?>">La main sur la plaie</a></div>
+        </div>
+        
+        <div class="brg" id="brg">
+            <div class="ln-1"></div>
+            <div class="ln-2"></div>
+            <div class="ln-3"></div>
+        </div>
+    </div>
+    <div class="nvgt-cntnr" id="nvgt-cntnr">
+        <?php wp_nav_menu( 'primary_menu' ); ?>
+    </div>
+</header>
+
+<!-- <header class="page-header">
     <div class="page-header-container">
 
         <div class="logo-wrapper">
@@ -40,8 +68,6 @@
             <li class="menu-item">L'équipe</li>
         </ul>
     </div>
-    
-
-</header>
+</header> -->
 
 <div class="header-divider"></div>

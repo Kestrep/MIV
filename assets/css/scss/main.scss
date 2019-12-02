@@ -1,16 +1,18 @@
 @import "variables";
 @import "breakpoints";
 @import "normalize";
-@import "containers";
+@import "block";
+@import "image";
+@import "title";
 @import "header";
 @import "buttons";
 @import "homepage";
 @import "hero";
 @import "team-card";
 @import "teampage-team-card";
+@import "presentation-card";
 @import "footer";
 @import "wordpress-custom/content";
-@import "visible-on-scroll";
 @import "page";
 
 /* xs => 540px, md => 1240, lg => oo*/

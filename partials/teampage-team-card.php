@@ -1,4 +1,4 @@
-<div class="team-card col-12 row">
+<div class="team-card-big col-12 row">
     <div class="background"></div>
     <div class="avatar avatar-big col-12 col-md-4">
         <?php the_post_thumbnail(); ?>

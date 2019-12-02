@@ -1,78 +1,84 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Gestion taille titre du site
+/* 
+const siteTitle = document.querySelector('.site-ttl');
+const siteTitleLink = document.querySelector('.site-ttl a');
+console.log(siteTitleLink.getBoundingClientRect().width)
+const siteTitleWidth = siteTitle.getBoundingClientRect().width;
+console.log(siteTitleWidth)
+const siteTitleContent = siteTitle.innerText;
 
-
+let fontSize = 10;
+while(siteTitleLink.getBoundingClientRect().width < siteTitleWidth && fontSize < 200) {
+  siteTitleLink.style.fontSize = fontSize + "px";
+  fontSize += 1;
+  console.log(fontSize)
+}
+ */
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// GESTION DES TEAM-CARD DE LA HOME PAGE
-
-/**
- * toggleActive
- * @param element
- * 
- */
-function toggleActive() {
-    this.classList.toggle('active');
-}
-function toggleWrapperActive() {
-    this.querySelector('.wrapper').classList.toggle('active');
-}
-
 // Gestion du Hamburger
 
-document.querySelector('#hamburger').addEventListener('click', ()=>{
-    hamburgerMenu = document.querySelector('#hamburgerMenu');
-    hamburgerMenu.classList.toggle('active');
+document.querySelector('#brg').addEventListener('click', function() {
+  document.querySelector('#nvgt-cntnr').classList.toggle('active');
+  this.classList.toggle('active');
 })
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Gestion d'une team-card
 
 document.querySelectorAll('.team-card').forEach( element => {
-    element.addEventListener('click', toggleWrapperActive)
+    element.addEventListener('click', function() {
+      this.classList.toggle('active');
+      const description = this.querySelector('.description-container');
+      const background = this.querySelector('.background');
+      description.classList.toggle('active');
+      if(description.style.maxHeight) {
+        description.style.maxHeight = null;
+        description.style.opacity = null;
+        background.style.maxHeight = '80%'
+      } else {
+        console.log('else');
+        description.style.maxHeight = description.scrollHeight + 'px';
+        description.style.opacity = 1;
+        background.style.maxHeight = '100%'
+      }
+    })
 })
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
+// SHOW ON SCROLL
 
-// Detect request animation frame
-var scroll = window.requestAnimationFrame ||
-             // IE Fallback
-             function(callback){ window.setTimeout(callback, 1000/60)};
-var elementsToShow = document.querySelectorAll('.show-on-scroll'); 
+const elementsToShow = document.querySelectorAll('.show-on-scroll');
+/* const tempEl = elementsToShow[2];
+console.log(tempEl);
 
-function loop() {
+console.log(window.innerHeight); */
+window.addEventListener('scroll', function() {
+  elementsToShow.forEach(element => {
+    if( isElementInViewport(element) ) {
+      element.classList.add('is-in-viewport');
+    } else if ( !isElementInViewport(element) ) {
+      element.classList.remove('is-in-viewport');
+    }
+  })
+});
 
-    Array.prototype.forEach.call(elementsToShow, function(element){
-      if (isElementInViewport(element)) {
-        element.classList.add('is-visible');
-      } else {
-        element.classList.remove('is-visible');
-      }
-    });
-
-    scroll(loop);
-}
-
-// Call the loop for the first time
-loop();
-
-// Helper function from: http://stackoverflow.com/a/7557433/274826
-function isElementInViewport(el) {
-  // special bonus for those using jQuery
-  if (typeof jQuery === "function" && el instanceof jQuery) {
-    el = el[0];
+elementsToShow.forEach(element => {
+  if( isElementInViewport(element) ) {
+    element.classList.add('is-in-viewport');
+  } else if ( !isElementInViewport(element) ) {
+    element.classList.remove('is-in-viewport');
   }
-  var rect = el.getBoundingClientRect();
-  return (
-    (rect.top <= 0
-      && rect.bottom >= 0)
-    ||
-    (rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.top <= (window.innerHeight || document.documentElement.clientHeight))
-    ||
-    (rect.top >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
-  );
+})
+
+function isElementInViewport(element) {
+  const rect = element.getBoundingClientRect();
+  if((rect.top < window.innerHeight && rect.bottom > 0) || (rect.bottom > 0 && rect.top < window.innerHeight)) {
+    return true;
+  } else {
+    return false;
+  }
 }
-
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,165 +1,3 @@
-
-/* position */
-.page-header {
-
-    .page-header-container {
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: start;
-        align-items: center;
-
-        padding: 2rem;
-        
-        @include md {
-            padding: 1rem;
-            padding-bottom: 0;
-        }
-        @include xs {
-            justify-content: space-between;
-            padding: 0;
-        }
-    }
-
-    .logo-wrapper {
-        max-height: 8rem;
-        max-width:  8rem;
-        overflow: hidden;
-        @include xs {
-            max-height: 6rem;
-            max-width: 6rem;
-        }
-        
-        img {
-            width: 100%;
-            height: 100%;
-        }
-    }
-
-    .site-title {
-        margin: 1rem;
-        text-align: center;
-    }
-
-    .hamburger {
-        display: none;
-        @include xs {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-        }
-    }
-
-    .nav-container {
-        display: flex;
-        justify-content: end;
-        
-        @include xs {display: none;}
-        ul {
-            display: flex;
-            flex-flow: row wrap;
-            align-items: center;
-        }
-    }
-    .donation-button {
-        @include xs {
-            display: none;
-        }
-    }
-
-    #hamburgerMenu {
-        display: none;
-
-        &.active {
-            display: flex;
-            justify-content: end;
-
-            ul {
-                margin-top: 1rem;
-                display: flex;
-                flex-flow: column nowrap;
-                align-items: flex-end;
-            }
-
-        }
-    }
-}
-
-
-/* Decoration */ 
-.page-header {
-    background-color: $custom-white;
-
-    .site-title {
-        font-size: 4rem;
-        font-family: $plex;
-        color: $primary-color;
-        font-weight: bolder;
-
-        @include md {
-            font-size: 3rem;
-        }
-
-        @include xs {
-            font-size: 1.5rem;
-        }
-    }
-
-
-    .nav, .nav-container {
-        font-size: 1.5rem;
-
-        ul {
-
-            margin: 0.5rem;
-
-            li {
-                padding: 1rem;
-                padding-top: 0.5rem;
-                padding-bottom: 0.5rem;
-                font-size: 1.5rem;
-                border-bottom: 2px solid transparent;
-
-                &:hover {
-                    cursor: pointer;
-                    border-bottom: 2px solid $primary-color;
-                }
-            }
-        }
-    }
-
-    .menu-item {
-        padding: 1rem;
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-        font-size: 1.5rem;
-        border-bottom: 2px solid transparent;
-
-        &:hover {
-            cursor: pointer;
-            border-bottom: 2px solid $primary-color;
-        }
-    }
-
-    .hamburger {
-        margin: 1rem;
-        height: 3rem;
-        width:  3rem;
-
-        &:hover .line {
-            background-color: $dark-primary-color
-        }
-        .line {
-            height: 5px;
-            background-color: $primary-color;
-            width: 100%;
-            border-radius: 0.5rem;
-
-
-        }
-    }
-}
-
 .header-divider {
     height: 1px;
     @include md {
@@ -170,4 +8,154 @@
     }
     background-color: $custom-black;
     margin: auto;
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+////////// HEADER POSITION
+.pg-hdr {
+    background-color: $custom-white;
+    padding-bottom: 0.4rem;
+    @include mt-md {
+        padding:  1rem 1rem 0.2rem;
+    }
+}
+
+.pg-hdr-cntnr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// LOGO
+
+.logo-wrppr {
+    position: relative;
+    width: 4rem;
+    height: 4rem;
+    @include mt-sm {
+        width: 6rem;
+        height: 6rem;
+    }
+    @include mt-md {
+        width: 8rem;
+        height: 8rem;
+    }
+}
+
+.logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+
+    width: 100%;
+    height: 100%;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Site title
+
+.site-ttl {
+    text-align: center;
+    @include mt-sm {
+        text-align: left;
+    }
+    font-size: 2rem;
+        @media screen and (max-width: 360px) {
+            font-size: 1.3rem;
+        }
+        @include mt-sm {
+            font-size: 4rem;
+        }
+        @include mt-md {
+            font-size: 5rem;
+        }
+    font-family: $plex;
+    color: $primary-color;
+    font-weight: bolder;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Hamburger
+.brg {
+    @include mt-md {display: none;}
+    position: relative;
+
+    width: 2.5rem;
+    height: 2rem;
+    margin-right: 1rem;
+}
+
+
+[class*=ln] {
+    position: absolute;
+    background-color: $primary-color;
+    width: 100%;
+    height: 5px;
+    border-radius: 3px;
+    transition: all 0.3s ease-out, opacity 0.1s;
+}
+
+
+.ln-1 {
+    top: 0;
+}
+.ln-2 {
+    top: 50%;
+    transform: translateY(-50%);
+}
+.ln-3 {
+    bottom: 0;
+}
+
+.brg:hover [class*=ln], .brg.active [class*=ln] {
+    background-color: $dark-primary-color;
+}
+.brg.active {
+    .ln-1 {
+        top: 50%;
+        transform: rotateZ(45deg);
+    }
+    .ln-2 {
+        opacity: 0;
+    }
+    .ln-3 {
+        top: 50%;
+        transform: rotateZ(-45deg);
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Navigation du page-header
+.pg-hdr {
+    .menu {
+        display: none;
+        @include mt-md {display: flex;}
+        justify-content: flex-end;
+    }
+
+    .menu-item {
+        padding: 0.2rem 0.5rem;
+        margin: 0 0.5rem;
+        font-size: 1.5rem;
+        border-bottom: 2px solid transparent;
+
+        &.current-menu-item {
+            border-bottom: 4px solid $primary-color;
+        }
+
+        &:hover:not(.current-menu-item) {
+            border-bottom: 2px solid $primary-color;
+        }
+    }
+
+}
+
+// On mobile, si active
+
+#nvgt-cntnr.active {
+    .menu {
+        display: flex;
+        flex-flow: column;
+        align-items: flex-end;
+    }
 }

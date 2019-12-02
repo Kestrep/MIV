@@ -6,7 +6,12 @@
         <div class="date">Publié le 29 septembre 2019 </div>
         <div class="tags"> Cameroun, Scolarité</div>
     </div>
-    <h2><?php the_title(); ?></h2>
+
+    <div class="thumbnail">
+        <?php the_post_thumbnail(); ?>
+    </div>
+
+    <h1><?php the_title(); ?></h1>
 
     <?php the_content(); ?>
 

@@ -1,8 +1,16 @@
 <?php get_header(); ?>
 
+<!-- Page title and info -->
+<!-- End: Page title and info -->
 
-<?php get_template_part('partials/home-content'); ?>
+<!-- Organisation features -->
+    <?php get_template_part('partials/home-content'); ?>
+<!-- End: Organisation features -->
 
+<!-- Homepage content -->
+<!-- End: Homepage content -->
+
+<!-- Last articles -->
 <div class="container">
     
     <section class="homepage-article">
@@ -19,14 +27,22 @@
             </div>
         </main>
     </section>
+</div>
+<!-- End: Last articles -->
 
-    <section class="team">
+<!-- Team presentation -->
+<div class="container">
+    <div class="row">
         <?php for ($i=0; $i < 8; $i++) { 
             get_template_part('partials/team-card');
         } ?>
-    </section>
-
+    </div>
 </div>
+<!-- End: Team presentation -->
+
+<!-- Footer -->
+<!-- End: Footer -->
+
 
 
 

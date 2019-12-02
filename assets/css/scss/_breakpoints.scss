@@ -1,37 +1,24 @@
+/* Premiers points de ruptures programmés*/
+/* Bootstrap xl, lg, md, sm, xs, */
+
 @mixin lg {
-    @media screen and (min-width: 1240px) {
-        @content;
-    }
-}
-
+    @media screen and (min-width: 1240px) { @content; }}
 @mixin less-than-1024 {
-    @media screen and (max-width: 1024px) {
-        @content;
-    }
-}
-
-
+    @media screen and (max-width: 1024px) { @content; }}
 @mixin md {
-    @media screen and (min-width: 540px) {
-        @content;
-    }
-}
+    @media screen and (min-width:  540px) { @content; }}
 @mixin less-than-md {
-    @media screen and (max-width: 540px) {
-        @content;
-    }
-}
-
+    @media screen and (max-width:  540px) { @content; }}
 @mixin xs {
-    @media screen and (max-width: 540px) {
-        @content;
-    }
-}
+    @media screen and (max-width:  540px) { @content; }}
 
-/*
-xl
-lg
-md
-sm
-xs
-*/
+/* Nouveaux points de ruptures avec les stats */
+/* Trois types d'écrans: sm (small = mobile) ; md (medium = tablette) : lg (large = desktop) */
+
+@mixin mt-sm { @media screen and (min-width:  920px) { @content; }}
+@mixin mt-md { @media screen and (min-width: 1280px) { @content; }}
+
+@mixin lt-lg { @media screen and (max-width: 1280px) { @content; }}
+@mixin lt-md { @media screen and (max-width:  920px) { @content; }}
+
+
