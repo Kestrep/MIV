@@ -138,6 +138,7 @@
         margin: 0 0.5rem;
         font-size: 1.5rem;
         border-bottom: 2px solid transparent;
+        list-style: none !important;
 
         &.current-menu-item {
             border-bottom: 4px solid $primary-color;

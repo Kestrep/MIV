@@ -4,18 +4,19 @@
         <div class="header-container">
             <div class="avatar-container">
                 <div class="avatar-wrapper">
-                    <img src="<?= get_template_directory_uri() . "/image_temp/avatar.jpg" ?>" alt="">
+                    <?php the_post_thumbnail(); ?>
                 </div>    
             </div>
             <div class="info">
-                <div class="name">Antoine random</div>
-                <div class="function">Fondateur Honorable</div>
+                <div class="name"><?php the_title(); ?></div>
+                <div class="function"><?php echo get_post_meta($post->ID, 'member_function', true); ?></div>
             </div>
         </div>
     </div>
     <div class="description-container">
         <div class="description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis vitae similique molestias itaque saepe ex magni labore pariatur explicabo repellat corrupti quod officiis, animi eveniet dicta perferendis, molestiae veritatis voluptates culpa. Obcaecati minima eligendi blanditiis quis consequuntur voluptatum? Odio tempora aspernatur quo repellendus explicabo earum officia maxime a eligendi expedita omnis, nemo provident voluptatum accusamus?
+            <?php the_excerpt(); ?>
+            <!-- <div class="post-link"><a href="<?php the_permalink(); ?>">Lire la suite</a></div> -->
         </div>
     </div>
 </div>

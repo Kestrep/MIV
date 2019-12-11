@@ -1,14 +1,14 @@
-<?php get_header(); ?>
+<?php if (is_user_logged_in()) {echo '<div class="localisation-in-wordpress">home.php</div>';} get_header(); ?>
 
 <!-- Page title and info -->
 <!-- End: Page title and info -->
 
-<!-- Organisation features -->
+<!-- Organisation features & HomepageContent-->
     <?php get_template_part('partials/home-content'); ?>
 <!-- End: Organisation features -->
 
 <!-- Homepage content -->
-<!-- End: Homepage content -->
+<!-- End: Organisation features & Homepage content -->
 
 <!-- Last articles -->
 <div class="container">

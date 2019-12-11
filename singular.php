@@ -3,12 +3,8 @@
 <?php if(have_posts()): while(have_posts()): the_post(); ?>
 <div class="container singular-page">
     <div class="metadata">
-        <div class="date">Publié le 29 septembre 2019 </div>
-        <div class="tags"> Cameroun, Scolarité</div>
-    </div>
-
-    <div class="thumbnail">
-        <?php the_post_thumbnail(); ?>
+        <div class="date"><?php the_date(); ?></div>
+        <div class="tags"><?php the_tags(); ?></div>
     </div>
 
     <h1><?php the_title(); ?></h1>
@@ -21,3 +17,4 @@
 
 
 <?php get_footer(); ?>
+

@@ -15,6 +15,7 @@
 /* Nouveaux points de ruptures avec les stats */
 /* Trois types d'écrans: sm (small = mobile) ; md (medium = tablette) : lg (large = desktop) */
 
+@mixin mt-xs { @media screen and (min-width:  568px) { @content; }}
 @mixin mt-sm { @media screen and (min-width:  920px) { @content; }}
 @mixin mt-md { @media screen and (min-width: 1280px) { @content; }}
 

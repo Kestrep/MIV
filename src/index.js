@@ -16,12 +16,12 @@ registerBlockType('namespace/donation-block', {
         hook: {
             type: 'string',
             source: 'html',
-            selector: 'div'
+            selector: 'h2'
         },
         buttonText: {
             type: 'string',
             source: 'html',
-            selector: 'div'
+            selector: 'p'
         }
     },
 
@@ -41,7 +41,7 @@ registerBlockType('namespace/donation-block', {
         }
         
         return (
-            <div class="cta-container">
+            <div class="cta-container hero hero-donation">
                 <RichText   key="editable" 
                             tagName="h2"
                             placeholder="Le texte au dessus du bouton"
@@ -49,7 +49,7 @@ registerBlockType('namespace/donation-block', {
                             onChange={ updateHook }
                             />
                 <RichText   key="editable" 
-                            tagName="div"
+                            tagName="p"
                             placeholder="Le texte du bouton"
                             value={ buttonText }
                             onChange={ updateButtonText }
@@ -65,10 +65,18 @@ registerBlockType('namespace/donation-block', {
         } = attributes;
 
         return (
-            <section class="hero hero-fullwidth hero-donation">
-                <div class="text">{ hook }</div>
-                <div class="donation-button big">{ buttonText }</div>
-            </section>
+            <div>
+                <section class="hero hero-fullwidth hero-donation">
+                    <h2 class="text">{ hook }</h2>
+                    <a href="/MIV/donation">
+                        <div class="donation-button big">
+                            <RichText.Content
+                                        tagName="p"
+                                        value={ buttonText }/>
+                        </div>
+                    </a>
+                </section>
+            </div>
         );
     }
 });
@@ -186,7 +194,7 @@ registerBlockType('namespace/presentation-section-block', { // 'namespace/block-
         return (
             <div>
                 <div class="presentation-card container">
-                    <div class={"image-wrapper show-on-scroll col-6 " + align }>
+                    <div class={"image-wrapper show-on-scroll " + align }>
                         <img src={ backgroundImage} alt=""/>
                     </div>
                     <h2 class="presentation-hook">{ title }</h2>

@@ -13,8 +13,10 @@
   font-family: inherit;
   text-decoration: none; }
 
+html {
+  overflow-x: hidden; }
+
 html, body {
-  overflow-x: hidden;
   font-size: 18px;
   font-family: "Roboto", sans-serif;
   color: #353535; }
@@ -173,7 +175,8 @@ header-title
   padding: 0.2rem 0.5rem;
   margin: 0 0.5rem;
   font-size: 1.5rem;
-  border-bottom: 2px solid transparent; }
+  border-bottom: 2px solid transparent;
+  list-style: none !important; }
   .pg-hdr .menu-item.current-menu-item {
     border-bottom: 4px solid #4C722E; }
   .pg-hdr .menu-item:hover:not(.current-menu-item) {
@@ -198,6 +201,10 @@ header-title
   @media screen and (max-width: 540px) {
     .donation-button {
       font-size: 1rem; } }
+  .donation-button p {
+    font-size: inherit;
+    text-indent: 0;
+    font-style: bolder; }
   .donation-button.big {
     font-size: 3rem;
     border-bottom-width: 11px; }
@@ -205,6 +212,8 @@ header-title
       .donation-button.big {
         font-size: 2rem;
         border-bottom-width: 7px; } }
+    .donation-button.big p {
+      font-size: inherit; }
 
 section {
   margin-top: 1rem; }
@@ -388,13 +397,16 @@ section.team {
   align-items: flex-end;
   align-content: center;
   margin: 2rem;
-  background-color: #EFECCE;
+  padding: 1rem;
+  background-color: #FFFFFF;
   border-radius: 0.3rem;
   box-shadow: 0px 0px 22px 4px rgba(0, 0, 0, 0.68); }
   .team-card-big .avatar {
-    padding: 1rem;
     max-width: 10rem;
     max-height: 10rem; }
+    .team-card-big .avatar img {
+      margin: 1rem;
+      border-radius: 0.5rem; }
   .team-card-big .info {
     padding: 1rem;
     font-family: "Roboto", sans-serif; }
@@ -411,41 +423,10 @@ section.team {
       line-height: 1.2rem; }
 
 .presentation-card {
-  margin-top: 2rem; }
-  .presentation-card .image-wrapper {
-    position: relative;
-    padding: 1rem;
-    margin: 1rem;
-    background-color: white;
-    box-shadow: 0px 0px 22px 4px rgba(0, 0, 0, 0.68); }
-    .presentation-card .image-wrapper::before {
-      content: "";
-      display: block;
-      padding-top: 100%;
-      width: 100%; }
-    .presentation-card .image-wrapper img {
-      padding: 0.75rem;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: auto; }
-  .presentation-card .image-wrapper.img-align-left {
-    float: left;
-    transform: rotateZ(-2deg); }
-    .presentation-card .image-wrapper.img-align-left.show-on-scroll {
-      transform: rotateZ(-16deg) translateX(-100vw);
-      transition: transform 4s 0.25s cubic-bezier(0, 1, 0.3, 1); }
-      .presentation-card .image-wrapper.img-align-left.show-on-scroll.is-in-viewport {
-        transform: rotateZ(-2deg) translateX(0); }
-  .presentation-card .image-wrapper.img-align-right {
-    float: right;
-    transform: rotateZ(2deg); }
-    .presentation-card .image-wrapper.img-align-right.show-on-scroll {
-      transform: rotateZ(16deg) translateX(100vw);
-      transition: transform 4s 0.25s cubic-bezier(0, 1, 0.3, 1); }
-      .presentation-card .image-wrapper.img-align-right.show-on-scroll.is-in-viewport {
-        transform: rotateZ(2deg) translateX(0); }
+  margin-top: 1rem; }
+  @media screen and (min-width: 568px) {
+    .presentation-card {
+      margin-top: 2rem; } }
   .presentation-card .presentation-hook {
     margin-left: 2rem;
     font-family: "IBM Plex Serif", serif;
@@ -501,23 +482,39 @@ footer {
   color: #4C722E;
   font-style: bold; }
 
-h1 {
-  font-size: 3rem;
+h1, .h1 {
+  font-size: 2rem;
   font-family: "IBM Plex Serif", serif;
-  line-height: 4rem;
-  padding-top: 0; }
-  @media screen and (max-width: 1024px) {
-    h1 {
-      font-size: 2rem;
-      line-height: 2.5rem;
-      padding-left: 1rem;
-      margin-top: 0rem; } }
+  line-height: 1;
+  margin: 1rem; }
+  @media screen and (min-width: 920px) {
+    h1, .h1 {
+      font-size: 3rem; } }
+
+h2, .h2 {
+  font-size: 1.5rem;
+  font-family: "IBM Plex Serif", serif;
+  line-height: 1.5;
+  margin: 0.5rem; }
+  @media screen and (min-width: 920px) {
+    h2, .h2 {
+      font-size: 2rem; } }
+
+h3, .h3 {
+  font-size: 1rem;
+  font-family: "IBM Plex Serif", serif;
+  line-height: 1.5;
+  margin: 0.5rem;
+  font-weight: bolder; }
+  @media screen and (min-width: 920px) {
+    h3, .h3 {
+      font-size: 1rem; } }
 
 p {
-  display: block;
+  text-align: justify;
   word-wrap: break-word;
   max-width: 100%;
-  padding: 1rem 1rem;
+  margin: 1rem;
   font-style: "Roboto", sans-serif;
   line-height: 2rem;
   text-indent: 2rem; }
@@ -525,26 +522,8 @@ p {
     p {
       text-indent: 1rem; } }
 
-@media screen and (min-width: 540px) {
-  .wp-block-image {
-    padding: 1rem;
-    margin-bottom: 3rem; }
-    .wp-block-image figure {
-      max-width: 80%; }
-    .wp-block-image .alignright img {
-      float: right;
-      transform: rotateZ(3deg); }
-    .wp-block-image .alignleft img {
-      float: left;
-      transform: rotateZ(-3deg); }
-    .wp-block-image figure.alignright img, .wp-block-image figure.alignleft img {
-      box-sizing: content-box;
-      outline: 0.5rem solid #FFFFFF;
-      border-bottom: 3rem solid #FFFFFF;
-      box-shadow: 0px 0px 22px 4px rgba(0, 0, 0, 0.68); } }
-    @media screen and (min-width: 540px) and (min-width: 1240px) {
-      .wp-block-image figure.alignright img, .wp-block-image figure.alignleft img {
-        border-bottom: 4rem solid #FFFFFF; } }
+ul, ol {
+  padding-left: 2rem; }
 
 .wp-block-quote {
   font-style: italic;
@@ -556,6 +535,58 @@ p {
   .wp-block-quote p::before, .wp-block-quote p::after {
     content: "\""; }
 
+@media screen and (min-width: 568px) {
+  .wp-block-image {
+    margin: 2rem; } }
+
+.image-wrapper, .wp-block-image figure {
+  width: 100%;
+  position: relative; }
+  @media screen and (min-width: 568px) {
+    .image-wrapper, .wp-block-image figure {
+      padding: 1rem;
+      max-width: 50%;
+      background-color: white;
+      box-shadow: 0px 0px 22px 4px rgba(0, 0, 0, 0.68); } }
+  .image-wrapper::before, .wp-block-image figure::before {
+    content: "";
+    display: block;
+    width: 100%; }
+    @media screen and (min-width: 568px) {
+      .image-wrapper::before, .wp-block-image figure::before {
+        padding-top: 100%; } }
+  .image-wrapper img, .wp-block-image figure img {
+    top: 0;
+    left: 0;
+    width: calc(100%);
+    height: auto; }
+    @media screen and (min-width: 568px) {
+      .image-wrapper img, .wp-block-image figure img {
+        padding: 0.75rem;
+        position: absolute; } }
+
+.image-wrapper.img-align-left, .wp-block-image .alignleft {
+  float: left; }
+  @media screen and (min-width: 568px) {
+    .image-wrapper.img-align-left, .wp-block-image .alignleft {
+      transform: rotateZ(-2deg); }
+      .image-wrapper.img-align-left.show-on-scroll, .wp-block-image .alignleft.show-on-scroll {
+        transform: rotateZ(-16deg) translateX(-100vw);
+        transition: transform 4s 0.25s cubic-bezier(0, 1, 0.3, 1); }
+        .image-wrapper.img-align-left.show-on-scroll.is-in-viewport, .wp-block-image .alignleft.show-on-scroll.is-in-viewport {
+          transform: rotateZ(-2deg) translateX(-1rem); } }
+
+.image-wrapper.img-align-right, .wp-block-image .alignright {
+  float: right; }
+  @media screen and (min-width: 568px) {
+    .image-wrapper.img-align-right, .wp-block-image .alignright {
+      transform: rotateZ(2deg); }
+      .image-wrapper.img-align-right.show-on-scroll, .wp-block-image .alignright.show-on-scroll {
+        transform: rotateZ(16deg) translateX(100vw);
+        transition: transform 4s 0.25s cubic-bezier(0, 1, 0.3, 1); }
+        .image-wrapper.img-align-right.show-on-scroll.is-in-viewport, .wp-block-image .alignright.show-on-scroll.is-in-viewport {
+          transform: rotateZ(2deg) translate(1rem); } }
+
 .page-fullwidth {
   position: relative;
   width: 100vw;
@@ -563,6 +594,7 @@ p {
   transform: translateX(-50%); }
 
 .page-title {
+  margin: 0;
   color: #FFFFFF;
   padding: 1rem 2rem;
   background-color: #4C722E;
