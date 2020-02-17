@@ -1,11 +1,14 @@
 <?php get_header(); if ( is_user_logged_in() ) {echo '<div class="localisation-in-wordpress">page.php</div>';} ?>
 
 <!-- Affichage du contenu -->
-<?php if(have_posts()): while(have_posts()): the_post();
+<div class="container">
 
-the_content();
+    <?php if(have_posts()): while(have_posts()): the_post();
 
-endwhile; endif; ?>
+        the_content();
+
+    endwhile; endif; ?>
+</div>
 
 <!-- End: Affichage du contenu -->
 

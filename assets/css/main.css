@@ -608,4 +608,40 @@ ul, ol {
   margin: 1rem;
   font-size: 1rem; }
 
+input[type='text'],
+input[type='email'],
+input[type='textarea'],
+input[type='button'],
+textarea {
+  margin: 0.3rem;
+  padding: 0.2rem 0.3rem;
+  width: 100%;
+  background-color: #4C722E;
+  border: none;
+  border-bottom: #FFFFFF solid 3px;
+  outline: #4C722E solid 0.5rem;
+  color: #FFFFFF; }
+  @media screen and (min-width: 568px) {
+    input[type='text'],
+    input[type='email'],
+    input[type='textarea'],
+    input[type='button'],
+    textarea {
+      font-size: 24px;
+      margin: 0.5rem;
+      padding: 0.3rem 0.5rem; } }
+  @media screen and (min-width: 568px) {
+    input[type='text'],
+    input[type='email'],
+    input[type='textarea'],
+    input[type='button'],
+    textarea {
+      border-bottom: #FFFFFF solid 1px;
+      outline: #4C722E solid 0.3rem; } }
+
+label.required::before {
+  content: "*";
+  color: #b11717;
+  font-size: 24px; }
+
 /* xs => 540px, md => 1240, lg => oo*/
