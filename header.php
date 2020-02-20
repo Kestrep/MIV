@@ -24,7 +24,7 @@
         </div>
         
         <div class="site-ttl-wrppr col">
-            <div class="site-ttl"><a href="<?= $home_link ?>">La main sur la plaie</a></div>
+            <div class="site-ttl"><a href="<?= $home_link ?>">Manum In Vulnere</a></div>
         </div>
         
         <div class="brg" id="brg">
