@@ -12,6 +12,6 @@
   "license": "ISC",
   "dependencies": {
     "@wordpress/scripts": "^3.4.0",
-    "node-sass": "^4.13.0"
+    "node-sass": "^7.0.0"
   }
 }
